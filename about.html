@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Materi - 22753096 Rifqi Dziban</title>
+
+  <link href="assets/img/polinela.png" rel="icon">
+  <link href="assets/img/polinela.png" rel="apple-touch-icon">
+
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <link href="assets/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top">
+    <div class="container-fluid d-flex justify-content-between align-items-center">
+
+      <h1 class="logo me-auto me-lg-0"><a href="index.html">Pemrogrman Web II</a></h1>
+
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a class="active" href="about.html">PDO</a></li>
+          <li><a href="aboutme.html">Profil</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+      <div class="header-social-links">
+        <a href="aboutme.html" class="social-link">
+            <img src="assets/img/Ultimatum.png" alt="" class="social-icon">
+        </a>
+    </div>
+    
+    </div>
+  </header>
+
+  <main id="main">
+
+
+    <!-- ======= isi ======= -->
+<section id="about" class="about">
+  <div class="container" data-aos="fade-up">
+
+    <div class="section-title">
+      <h2>PHP Data Object (PDO)</h2>
+      <p>PDO (PHP Data Objects) merupakan ekstensi interface atau antarmuka pada bahasa pemrograman PHP, yang digunakan untuk berinteraksi dengan berbagai jenis basis data server menggunakan bahasa pemrograman PHP. 
+        Tidak seperti mysql extension ataupun mysqli extension yang berhubungan langsung dengan Database MySQL, PDO dalam hal ini hanya berperan sebagai interface, tidak ada hubungan langsung ke database.</p>
+    </div>
+    <br>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6">
+          <h2 class="text-uppercase mb-2 text-center">Kelebihan</h2>
+          <ul>
+            <li>PDO menyediakan penanganan kesalahan yang lebih baik dengan menggunakan pengecualian (exception) untuk melaporkan kesalahan.</li>
+            <li>PDO memungkinkan portabilitas kode karena dapat digunakan dengan berbagai jenis basis data seperti MySQL, PostgreSQL, SQLite, dan banyak lagi.</li>
+            <li>PDO dapat memberikan kinerja yang lebih baik dalam beberapa situasi karena beberapa basis data dapat memberikan implementasi PDO yang dioptimalkan untuk kebutuhan mereka.</li>
+          </ul>
+        </div>
+        <div class="col-lg-6">
+          <h2 class="text-uppercase mb-2 text-center">Kekurangan</h2>
+          <ul>
+            <li>Minim fitur khusus, dimana tidak semua fitur khusus dari setiap sistem basis data didukung secara penuh. Beberapa fitur unik atau ciri khas suatu basis data mungkin tidak dapat diakses melalui PDO.</li>
+            <li>Pemecahan masalah (debugging) dengan PDO mungkin bisa menjadi lebih sulit dibandingkan dengan ekstensi spesifik basis data karena PDO menyembunyikan detail implementasi khusus.</li>
+            <li>PDO mungkin tidak dapat memanfaatkan pengoptimalan khusus yang mungkin diberikan oleh setiap sistem manajemen database.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <br> <br><br><br>
+    <div class="row">
+      <div class="col-lg-">
+        <h3>Melakukan Koneksi pada PDO</h3>
+        <p class="fst-italic">
+          code dibawah merupakan contoh potongan script PHP yang digunakan untuk membuat koneksi ke database MySQL menggunakan PDO (PHP Data Objects).
+        </p>
+        <pre>
+    <code>
+    <span style="color: #56B6C2;">&lt;?php</span>
+    <span style="color: #D19A66;">    $host = '<span style="color: #06972b;">localhost</span>';</span>
+    <span style="color: #D19A66;">    $dbname = '<span style="color: #06972b;">nama_database</span>';</span>
+    <span style="color: #D19A66;">    $username = '<span style="color: #06972b;">nama_pengguna</span>';</span>
+    <span style="color: #D19A66;">    $password = '<span style="color: #06972b;">kata_sandi</span>';</span>
+    <span style="color: #56B6C2;">    </span>
+    <span style="color: #56B6C2;">    try {</span>
+    <span style="color: #3F78A9;">        </span>
+    <span style="color: #ac00a0;">        $pdo = new PDO</span>("mysql:host=$host;dbname=$dbname", $username, $password);
+    <span style="color: #ac00a0;">        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);</span>
+    <span style="color: #ac00a0;">        $pdo = null;</span>
+    <span style="color: #56B6C2;">    } catch (PDOException $e) {</span>
+    <span style="color: #C74D42;">        </span>
+    <span style="color: #0a31b1;">        echo '<span style="color: #06972b;">"Koneksi database gagal: "</span>' . $e->getMessage();</span>
+    <span style="color: #56B6C2;">    }</span>
+    <span style="color: #56B6C2;">&lt;?php</span>
+    </code>
+    </pre>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-lg-12">
+        <p>
+          <b>$host </b> digunakan untuk Menyimpan nama host database, <b>$dbname </b>digunakan Menyimpan nama database yang akan dipakai, sedangkan <b>$username</b> dan <b>$password:</b> Menyimpan kata sandi dan juga username pada databases. <br>
+          <b>$pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);</b> digunakan Membuat objek PDO untuk melakukan koneksi ke database MySQL. Parameter yang diberikan adalah informasi host, nama database, nama pengguna, dan kata sandi.
+            <br>
+            <b>$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);</b> berfungsi untuk mengatur atribut PDO untuk menangkap kesalahan sebagai exception sehingga dapat ditangkap oleh blok catch. $pdo = null; Menutup koneksi ke database. 
+           <b>catch (PDOException $e) { ... }:</b> Blok catch digunakan untuk menangkap exception jika ada kesalahan dalam koneksi database. Pesan kesalahan akan dicetak menggunakan echo.</p>
+        </div>
+    </div>
+
+    <br><br><br><br>
+    <div class="row">
+      <div class="col-lg-">
+        <h3> Menampilkan data pada PDO</h3>
+        <p class="fst-italic">
+          untuk menampilkan data sangatlah mudah yang perlu dilakukan adalah dengan mengambil data lalu menampilkanya, seperti contoh code dibawh ini.
+        </p>
+        <pre>
+          <code>
+            <span style="color: rgba(255, 0, 0, 1);">&lt;?php</span>
+            <span style="color: rgba(0, 0, 255, 1);">    $query = "<span style="color: rgba(0, 128, 0, 1);">SELECT * FROM nama_tabel</span>";</span>
+            <span style="color: rgba(0, 128, 0, 1);">    $stmt = $dbh->query($query);</span>
+            <span style="color: rgba(255, 0, 0, 1);">    </span>
+            <span style="color: rgba(255, 0, 0, 1);">    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {</span>
+            <span style="color: rgba(255, 0, 0, 1);">        echo $row['<span style="color: rgba(255, 165, 0, 1);">kolom1</span>'] . ' ' . $row['<span style="color: rgba(128, 0, 128, 1);">kolom2</span>'] . '&lt;br>';</span>
+            <span style="color: rgba(255, 0, 0, 1);">    }</span>
+            <span style="color: rgba(255, 0, 0, 1);">&lt;?php</span>
+        </code>
+    </pre>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-lg-12">
+        <p>
+          Dengan menggunakan query SQL <b>SELECT * FROM </b>, code ini mengambil semua data dari tabel pada databses yang disimpan dalam variabel <b>$stmt</b> <br><br>
+            <code>
+            <span style="color: rgba(0, 0, 255, 1);">    $query = "<span style="color: rgba(0, 128, 0, 1);">SELECT * FROM nama_tabel</span>";</span>
+            <span style="color: rgba(0, 128, 0, 1);">    $stmt = $dbh->query($query);</span>
+            </code>
+            <br> <br>
+          Lalu setelah data diambil selanjutnya akan ditampilkan dengan menggunakan perulangan <b>while</b> untuk mengambil setiap baris hasil query satu per satu. Setiap baris data disimpan dalam variabel $row sebagai array asosiatif. Data dari kolom1 dan kolom2 kemudian ditampilkan menggunakan perintah <b>echo</b>.
+            <br><br>
+            <code>
+              <span style="color: rgba(255, 0, 0, 1);">    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {</span>
+                <span style="color: rgba(255, 0, 0, 1);">        echo $row['<span style="color: rgba(255, 165, 0, 1);">kolom1</span>'] . ' ' . $row['<span style="color: rgba(128, 0, 128, 1);">kolom2</span>'] . '&lt;br>';</span>
+                <span style="color: rgba(255, 0, 0, 1);">    }</span>
+            </code> <br><br>
+            Setiap baris data akan dicetak sebagai teks yang terdiri dari nilai kolom1, spasi, nilai kolom2, dan diakhiri dengan tag (br) untuk membuat baris baru. secara keseluruhan code tersebut berfungsi untuk menjalankan query SQL, mengambil hasil query satu per satu, dan menampilkan data dari kolom1 dan kolom2 dalam format tertentu.
+            </div>
+            </div>
+
+            <br><br><br><br>
+    <div class="row">
+      <div class="col-lg-">
+        <h3> Menambahkan dan memutuskan koneksi PDO</h3>
+        <p class="fst-italic">
+           contoh code untuk mnambahkan dan memutuskan koneksi PDO
+        </p>
+        <pre>
+          <code>
+            <span style="color: rgba(255, 0, 0, 1);">&lt;?php</span>
+            <span style="color: rgba(0, 0, 255, 1);">    $host = '<span style="color: rgba(6, 151, 43, 1);">localhost</span>';</span>
+            <span style="color: rgba(0, 0, 255, 1);">    $dbname = '<span style="color: rgba(6, 151, 43, 1);">nama_database</span>';</span>
+            <span style="color: rgba(0, 0, 255, 1);">    $username = '<span style="color: rgba(6, 151, 43, 1);">nama_pengguna</span>';</span>
+            <span style="color: rgba(0, 0, 255, 1);">    $password = '<span style="color: rgba(6, 151, 43, 1);">kata_sandi</span>';</span>
+            <span style="color: rgba(255, 0, 0, 1);">    </span>
+            <span style="color: rgba(255, 0, 0, 1);">    try {</span>
+            <span style="color: rgba(0, 82, 204, 1);">        $dbh = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);</span>
+            <span style="color: rgba(0, 82, 204, 1);">        $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);</span>
+            <span style="color: rgba(0, 82, 204, 1);">        $data = array(</span>
+            <span style="color: rgba(0, 82, 204, 1);">            'kolom1' => '<span style="color: rgba(255, 165, 0, 1);">Nilai1</span>',</span>
+            <span style="color: rgba(0, 82, 204, 1);">            'kolom2' => '<span style="color: rgba(128, 0, 128, 1);">Nilai2</span>'</span>
+            <span style="color: rgba(0, 82, 204, 1);">        );</span>
+            <span style="color: rgba(0, 82, 204, 1);">        $query = "<span style="color: rgba(0, 128, 0, 1);">INSERT INTO nama_tabel (kolom1, kolom2) VALUES (:kolom1, :kolom2)</span>";</span>
+            <span style="color: rgba(0, 82, 204, 1);">        $stmt = $dbh->prepare($query);</span>
+            <span style="color: rgba(0, 82, 204, 1);">        $stmt->execute($data);</span>
+            <span style="color: rgba(0, 82, 204, 1);">        echo "<span style="color: rgba(0, 82, 204, 1);">Data berhasil ditambahkan!</span>";</span>
+            <span style="color: rgba(255, 0, 0, 1);">    } catch (PDOException $e) {</span>
+            <span style="color: rgba(197, 77, 66, 1);">        echo "<span style="color: rgba(6, 151, 43, 1);">Error: </span>" . $e->getMessage();</span>
+            <span style="color: rgba(255, 0, 0, 1);">    }</span>
+            <span style="color: rgba(255, 0, 0, 1);">    $dbh = null;</span>
+            <span style="color: rgba(255, 0, 0, 1);">&lt;?php</span>
+        </code>
+        
+    </pre>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-lg-12">
+        <p>
+          Pada code dibawah merupakan sintak untuk menambahkan data ke dalam tabel. Data ini disimpan dalam bentuk array asosiatif, di mana kunci array adalah nama kolom dalam tabel dan nilai array adalah nilai yang akan dimasukkan. <br><br>
+            <code>
+              <span style="color: rgba(0, 82, 204, 1);">        $data = array(</span>
+              <span style="color: rgba(0, 82, 204, 1);">            'kolom1' => '<span style="color: rgba(255, 165, 0, 1);">Nilai1</span>',</span>
+              <span style="color: rgba(0, 82, 204, 1);">            'kolom2' => '<span style="color: rgba(128, 0, 128, 1);">Nilai2</span>'</span>
+              <span style="color: rgba(0, 82, 204, 1);">        );</span>
+            </code>
+            <br> <br>
+          Lalu <b>$query</b> untuk menambahkan data ke dalam tabel. Placeholder :kolom1 dan :kolom2 akan digantikan dengan nilai yang sudah disiapkan pada langkah sebelumnya, yang nantinya akan mengeksekusi statement SQL dengan menggantikan placeholder dengan nilai yang sudah disiapkan.
+            <br><br>
+            <code>
+              <span style="color: rgba(0, 82, 204, 1);">        $query = "<span style="color: rgba(0, 128, 0, 1);">INSERT INTO nama_tabel (kolom1, kolom2) VALUES (:kolom1, :kolom2)</span>";</span><br>
+              <span style="color: rgba(0, 82, 204, 1);">        $stmt = $dbh->prepare($query);</span>
+              <span style="color: rgba(0, 82, 204, 1);">        $stmt->execute($data);</span><br>
+              <span style="color: rgba(0, 82, 204, 1);">        echo "<span style="color: rgb(0, 156, 26);">Data berhasil ditambahkan!</span>";</span>
+            </code> <br><br>
+            <code>
+              <span style="color: rgba(255, 0, 0, 1);">    $dbh = null;</span>
+            </code> <br><br>
+            Kode <b>$dbh = null</b> digunakan untuk menutup koneksi ke database setelah operasi selesai.
+
+
+            <br><br><br><br>
+    <div class="row">
+      <div class="col-lg-">
+        <h3> Mengedit data PDO</h3>
+        <p class="fst-italic">
+          Berikut merupakan salah satu contoh sintak yang digunakan untuk mengedit data pada PDO
+        </p>
+        <pre>
+          <span style="color: rgba(255, 255, 0, 1);">&lt;?php</span>
+          <span style="color: rgba(0, 128, 0, 1);">    $host = '<span style="color: rgb(218, 0, 134);">localhost</span>';</span>
+          <span style="color: rgba(0, 128, 0, 1);">    $dbname = '<span style="color: rgb(218, 0, 134);">nama_database</span>';</span>
+          <span style="color: rgba(0, 128, 0, 1);">    $username = '<span style="color: rgb(218, 0, 134);">nama_pengguna</span>';</span>
+          <span style="color: rgba(0, 128, 0, 1);">    $password = '<span style="color: rgb(218, 0, 134);">kata_sandi</span>';</span>
+          <span style="color: rgba(255, 255, 0, 1);">    </span>
+          <span style="color: rgba(255, 255, 0, 1);">    try {</span>
+          <span style="color: rgba(0, 82, 204, 1);">        $dbh = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);</span>
+          <span style="color: rgba(0, 82, 204, 1);">        $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);</span>
+          <span style="color: rgba(0, 82, 204, 1);">        $data = array(</span>
+          <span style="color: rgba(0, 82, 204, 1);">            'id' => 1,  </span>
+          <span style="color: rgba(0, 82, 204, 1);">            'kolom1' => '<span style="color: rgba(255, 182, 193, 1);">NilaiBaru1</span>',</span>
+          <span style="color: rgba(0, 82, 204, 1);">            'kolom2' => '<span style="color: rgba(128, 0, 128, 1);">NilaiBaru2</span>'</span>
+          <span style="color: rgba(0, 82, 204, 1);">        );</span>
+          <span style="color: rgba(0, 82, 204, 1);">        $query = "<span style="color: rgba(0, 128, 0, 1);">UPDATE nama_tabel SET kolom1 = :kolom1, kolom2 = :kolom2 WHERE id = :id</span>";</span>
+          <span style="color: rgba(0, 82, 204, 1);">        $stmt = $dbh->prepare($query);</span>
+          <span style="color: rgba(0, 82, 204, 1);">        $stmt->execute($data);</span>
+          <span style="color: rgba(0, 82, 204, 1);">        echo "<span style="color: rgba(255, 182, 193, 1);">Data berhasil diubah!</span>";</span>
+          <span style="color: rgba(255, 255, 0, 1);">    } catch (PDOException $e) {</span>
+          <span style="color: rgba(197, 77, 66, 1);">        echo "<span style="color: rgba(173, 216, 230, 1);">Error: </span>" . $e->getMessage();</span>
+          <span style="color: rgba(255, 255, 0, 1);">    }</span>
+          <span style="color: rgba(255, 255, 0, 1);">    $dbh = null;</span>
+          <span style="color: rgba(255, 255, 0, 1);">&lt;?php</span>
+
+        
+    </pre>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-lg-12">
+        <p>
+          Pada code dibawah merupakan perintah untuk memilih kolom mana yang datanya ingin diedit. <br><br>
+            <code>
+              <span style="color: rgba(0, 82, 204, 1);">        $data = array(</span>
+              <span style="color: rgba(0, 82, 204, 1);">            'id' => 1,  </span>
+              <span style="color: rgba(0, 82, 204, 1);">            'kolom1' => '<span style="color: rgba(255, 182, 193, 1);">NilaiBaru1</span>',</span>
+              <span style="color: rgba(0, 82, 204, 1);">            'kolom2' => '<span style="color: rgba(128, 0, 128, 1);">NilaiBaru2</span>'</span></code>
+              <span style="color: rgba(0, 82, 204, 1);">        );</span>
+              <br> <br>
+          Lalu dengan perintah <b>Update</b> lalu dengan statment untuk mengeksekusi dan akan menampilkan statament <b>Data berhasil diubah!</b> jika berjalan dengan benar.
+          <br><br>
+            <code>
+              <span style="color: rgba(0, 82, 204, 1);">        $query = "<span style="color: rgba(0, 128, 0, 1);">UPDATE nama_tabel SET kolom1 = :kolom1, kolom2 = :kolom2 WHERE id = :id</span>";</span><br>
+              <span style="color: rgba(0, 82, 204, 1);">        $stmt = $dbh->prepare($query);</span> <br>
+              <span style="color: rgba(0, 82, 204, 1);">        $stmt->execute($data);</span> <br>
+              <span style="color: rgba(0, 82, 204, 1);">        echo "<span style="color: rgba(255, 182, 193, 1);">Data berhasil diubah!</span>";</span>
+            </code>
+          </div>
+          </div>
+
+
+          <br><br><br><br>
+    <div class="row">
+      <div class="col-lg-">
+        <h3> Menghapus data PDO</h3>
+        <p class="fst-italic">
+          Berikut merupakan contoh sintak yang digunakan untuk menghapus data pada PDO
+        </p>
+        <pre>
+          <span style="color: rgba(192, 78, 121, 1);">&lt;?php</span>
+          <span style="color: rgba(0, 128, 0, 1);">    $host = '<span style="color: rgb(0, 128, 0);">localhost</span>';</span>
+          <span style="color: rgba(0, 128, 0, 1);">    $dbname = '<span style="color: rgb(0, 128, 0);">nama_database</span>';</span>
+          <span style="color: rgba(0, 128, 0, 1);">    $username = '<span style="color: rgb(0, 128, 0);">nama_pengguna</span>';</span>
+          <span style="color: rgba(0, 128, 0, 1);">    $password = '<span style="color: rgb(0, 128, 0);">kata_sandi</span>';</span>
+          <span style="color: rgba(192, 78, 121, 1);">    </span>
+          <span style="color: rgba(192, 78, 121, 1);">    try {</span>
+          <span style="color: rgba(0, 82, 204, 1);">        $dbh = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);</span>
+          <span style="color: rgba(0, 82, 204, 1);">        $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);</span>
+          <span style="color: rgba(0, 82, 204, 1);">        $idToDelete = 1; </span>
+          <span style="color: rgba(0, 82, 204, 1);">        $query = "DELETE FROM nama_tabel WHERE id = :id";</span>
+          <span style="color: rgba(0, 82, 204, 1);">        $stmt = $dbh->prepare($query);</span>
+          <span style="color: rgba(0, 82, 204, 1);">        $stmt->execute(array('id' => $idToDelete));</span>
+          <span style="color: rgba(0, 82, 204, 1);">        echo "<span style="color: rgba(192, 78, 121, 1);">Data berhasil dihapus!</span>";</span>
+          <span style="color: rgba(192, 78, 121, 1);">    } catch (PDOException $e) {</span>
+          <span style="color: rgba(197, 77, 66, 1);">        echo "<span style="color: rgb(0, 128, 0);">Error: </span>" . $e->getMessage();</span>
+          <span style="color: rgba(192, 78, 121, 1);">    }</span>
+          <span style="color: rgba(192, 78, 121, 1);">    $dbh = null;</span>
+          <span style="color: rgba(192, 78, 121, 1);">&lt;?php</span>
+    </pre>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-lg-12">
+        <p>
+          Hampir sama dengan cara mengedit data, disini hanya ada bebrapa perubahannya saja pada sintak menghapus data, dimana user diminta untuk memasukan id untuk dihapus 
+          lalu memasukan nama tabel dan lokasi dari tabel yang akan diahpus, lalu yang terakhir adalah menjalankan ekeskusi untuk mengahpus data  <br><br>
+            <code>
+          <span style="color: rgba(0, 82, 204, 1);">        $dbh = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);</span><br>
+          <span style="color: rgba(0, 82, 204, 1);">        $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);</span><br>
+          <span style="color: rgba(0, 82, 204, 1);">        $idToDelete = 1; </span><br>
+          <span style="color: rgba(0, 82, 204, 1);">        $query = "DELETE FROM nama_tabel WHERE id = :id";</span><br>
+          <span style="color: rgba(0, 82, 204, 1);">        $stmt = $dbh->prepare($query);</span><br>
+          <span style="color: rgba(0, 82, 204, 1);">        $stmt->execute(array('id' => $idToDelete));</span><br>
+          <span style="color: rgba(0, 82, 204, 1);">        echo "<span style="color: rgba(192, 78, 121, 1);">Data berhasil dihapus!</span>";</span><br> </code>
+          
+              <br> <br><br><br>
+
+              <p><b>Referensi :</b> <br>
+                <a href="https://parsinta.com/articles/belajar-php-data-object-bqsjef" class="black-underline">Belajar PHP Data Object (PDO): Panduan Lengkap</a> <br>
+                <a href="https://www.duniailkom.com/tutorial-php-mysql-cara-membuat-koneksi-php-mysql-dengan-pdo/" class="black-underline">Tutorial PHP MySQL Part 20: Cara Membuat Koneksi PHP MySQL dengan PDO</a><br>
+                <a href="https://www.w3schools.com/php/php_mysql_connect.asp" class="black-underline">Connection PHP Tutorial</a><br>
+                <a href="https://defablogblog.wordpress.com/2017/01/26/kelebihan-dan-kekurangan-oop-dan-pdo/" class="black-underline">Kelebihan dan Keuntungan PDO</a><br>
+                <a href="https://getbootstrap.com/" class="black-underline">Boostrap vendor</a>
+              </p>
+              
+           <br><br>
+          
+          </div>
+    </div>
+  </div>
+</section>
+  </main>
+
+  <!-- foot-->
+  <footer id="footer">
+    <div class="container">
+      <div class="credits">
+        Dosen: 
+      </div>
+      <div class="credits">
+        Eko Win Kenali, S.Kom, M.Cs 
+      </div>
+      <div class="credits">
+        D3 Manajemen Informatika, Politeknik Negeri Lampung
+      </div>
+    
+    </div>
+  </footer>
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+ 
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
